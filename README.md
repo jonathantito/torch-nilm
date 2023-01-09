@@ -9,6 +9,9 @@
 4) `pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 -f https://download.pytorch.org/whl/torch_stable.html` to use GPU in conda environment
 5) Run `python /workspaces/torch-nilm/experiment_jtito_1.py` to run an experiment and test the environment
 
+6) Select python interpreter to run/debug code in VSCode
+
+![select python interpreter](imgs/uno.png)
 ## Description
 **[Torch-NILM](https://doi.org/10.3390/en15072647)** is the first NILM-specific deep learning toolkit build on **[Pytorch](https://pytorch.org)** and 
 **[Python](https://www.python.org)**. The purpose of the toolkit is to help researchers design and execute 

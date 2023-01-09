@@ -1,3 +1,20 @@
+# ---
+# jupyter:
+#   jupytext:
+#     cell_metadata_filter: -all
+#     custom_cell_magics: kql
+#     text_representation:
+#       extension: .py
+#       format_name: percent
+#       format_version: '1.3'
+#       jupytext_version: 1.11.2
+#   kernelspec:
+#     display_name: torch-nilm
+#     language: python
+#     name: python3
+# ---
+
+# %%
 from lab.nilm_experiments import *
 from constants.constants import *
 from constants.enumerates import *
@@ -18,36 +35,41 @@ experiment_parameters = {
     NOISE_FACTOR: 0.0,
 }
 
+# %%
 devices = [
-    ElectricalAppliances.KETTLE,
-    ElectricalAppliances.MICROWAVE,
-    ElectricalAppliances.FRIDGE,
+    ElectricalAppliances.TUMBLE_DRYER,
+    ElectricalAppliances.OVEN,
     ElectricalAppliances.WASHING_MACHINE,
     ElectricalAppliances.DISH_WASHER,
 ]
 
+# %%
 prior_weights = [0.1 for i in range(0, len(devices))]
 for i, dev in enumerate(devices):
     if dev == ElectricalAppliances.DISH_WASHER:
         prior_weights[i] = 0.15# 0.1 sto 15 kai paei kala
     elif dev == ElectricalAppliances.WASHING_MACHINE:
         prior_weights[i] = 0.15#0.1 to krataw
-    elif dev == ElectricalAppliances.FRIDGE:
+    elif dev == ElectricalAppliances.OVEN:
         prior_weights[i] = 0.001# 0.001 to krataw
-    elif dev == ElectricalAppliances.KETTLE:
+    elif dev == ElectricalAppliances.TUMBLE_DRYER:
         prior_weights[i] = 0.1# to krataw
-    elif dev == ElectricalAppliances.MICROWAVE:
-        prior_weights[i] = 0.01#0.1# 0.001 sto 15 kai paei kala
+    #elif dev == ElectricalAppliances.MICROWAVE:
+        #prior_weights[i] = 0.01#0.1# 0.001 sto 15 kai paei kala
 
+# %%
 prior_noise = 1 - sum(prior_weights)
 
+# %%
 print('prior_weights: ', prior_weights)
 print('prior_noise: ', prior_noise)
 
+# %%
 experiment_categories = [
     SupportedExperimentCategories.SINGLE_CATEGORY,
 ]
 
+# %%
 model_hparams = [
     {
         'model_name': 'VAE',
@@ -62,6 +84,7 @@ model_hparams = [
     },
 ]
 
+# %%
 hparam_tuning = [
     {
         'model_name': 'SuperVAE',
@@ -82,12 +105,15 @@ hparam_tuning = [
     },
 ]
 
+# %%
 model_hparams = ModelHyperModelParameters(model_hparams)
 hparam_tuning = HyperParameterTuning(hparam_tuning)
 experiment_parameters = ExperimentParameters(**experiment_parameters)
 
+# %% [markdown]
 # SuperVae21Unet-> to kalytero, only noise info loss
 
+# %% [markdown]
 # experiment = NILMSuperExperiments(project_name='IssueGit', clean_project=False,
 #                                   devices=devices, save_timeseries_results=False,
 #                                   experiment_categories=experiment_categories,
@@ -96,6 +122,7 @@ experiment_parameters = ExperimentParameters(**experiment_parameters)
 #                                   save_model=False, export_plots=False,
 #                                   )
 
+# %%
 experiment = NILMExperiments(project_name='IssueGit', clean_project=True,
                              devices=devices, save_timeseries_results=False, experiment_categories=experiment_categories,
                              experiment_volume=SupportedExperimentVolumes.LARGE_VOLUME,
@@ -103,6 +130,7 @@ experiment = NILMExperiments(project_name='IssueGit', clean_project=True,
                              save_model=False, export_plots=False,
                              )
 
+# %%
 experiment.run_benchmark(model_hparams=model_hparams)
 # experiment.export_report(model_hparams=model_hparams, experiment_type=SupportedNilmExperiments.BENCHMARK)
 # experiment.run_cross_validation(model_hparams=model_hparams)
