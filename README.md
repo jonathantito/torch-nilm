@@ -1,5 +1,14 @@
 # Torch-NILM: An effective deep learning toolkit for Non Intrusive Load Monitoring in Pytorch
 
+## Forked from https://github.com/Virtsionis/torch-nilm
+1) Open dev container in VSCode
+2) `conda init` in terminal to initialize conda
+2.1) Open new terminal for the next steps
+2.5) `conda env list` to see list of environments
+3) `conda activate torch-nilm` to activate environment
+4) `pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 -f https://download.pytorch.org/whl/torch_stable.html` to use GPU in conda environment
+5) Run `python /workspaces/torch-nilm/experiment_jtito_1.py` to run an experiment and test the environment
+
 ## Description
 **[Torch-NILM](https://doi.org/10.3390/en15072647)** is the first NILM-specific deep learning toolkit build on **[Pytorch](https://pytorch.org)** and 
 **[Python](https://www.python.org)**. The purpose of the toolkit is to help researchers design and execute 
