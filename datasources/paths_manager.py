@@ -1,10 +1,10 @@
 import os
 from pathlib import Path
 
-dirname = os.path.dirname(__file__)
-UK_DALE = os.path.join(dirname, '../../Datasets/UKDALE/UKDALE.h5')
-REDD = os.path.join(dirname, '../../Datasets/REDD/redd.h5')
-REFIT = os.path.join(dirname, '../../Datasets/REFIT/REFIT.h5')
+#dirname = os.path.dirname(__file__)
+UK_DALE = os.path.join('/workspaces/torch-nilm/data/academic/UKDALE/data.h5')#dirname, '../../data/UKDALE/UKDALE.h5')
+REDD = os.path.join('/workspaces/torch-nilm/data/academic/REDD/data.h5')#dirname, '../../data/REDD/REDD.h5')
+REFIT = os.path.join('/workspaces/torch-nilm/data/academic/REFIT/data.h5')#dirname, '../../data/REFIT/REFIT.h5')
 
 
 MODEL_CKPT_PATH = 'model/'

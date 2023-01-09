@@ -1,0 +1,30 @@
+# pytorch-lightning==1.6.0
+# torch_tb_profiler
+#tensorflow
+ray
+ray[tune]
+ray[default]
+ipykernel
+pandas
+pyarrow
+matplotlib
+SQLAlchemy
+#boto3==1.25.0
+dask[dataframe]
+streamlit
+PyMySQL
+black
+twine
+wheel
+pre-commit
+#psycopg2-binary
+Flask==2.0.3
+python-dotenv
+mysql-connector-python
+pyaml-env
+#dvc[s3]
+watchdog
+seaborn
+scikit-learn
+#s3fs
+tensorflow-addons

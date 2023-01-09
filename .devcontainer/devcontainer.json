@@ -1,0 +1,34 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/anaconda
+{
+	"name": "TF&PYtorchNILM",
+	"build": {
+		"context": "..",
+		"dockerfile": "../dockerfiles/ml-env.Dockerfile"
+	},
+	"extensions": [
+		"ms-python.python",
+		"ms-python.vscode-pylance",
+		"congyiwu.vscode-jupytext",
+		"njpwerner.autodocstring",
+		"GitHub.copilot",
+		"donjayamanne.python-environment-manager",
+		"donjayamanne.python-extension-pack",
+		"GrapeCity.gc-excelviewer",
+	],
+	"runArgs": [
+		"--gpus",
+		"all",
+		"--shm-size=96.00gb"
+	],
+	// mount volume in container
+	"mounts": [
+		"source=/data,target=/data,type=bind,consistency=cached",
+		"source=/data/data/datasets/academic,target=/workspaces/torch-nilm/data/academic,type=bind,consistency=cached",
+		"source=experiment-store,target=/experiment-store,type=volume"
+	],
+	"postCreateCommand": "bash ./jtito-scripts/postcreate.sh",//"conda env create -f /workspaces/wib-ai/experiments/jtito/torch-nilm/torch-nilm.yml",
+	//"remoteUser": "jtito",
+	//"containerUser": "vscode"
+
+}
