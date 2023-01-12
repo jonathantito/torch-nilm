@@ -590,7 +590,7 @@ class NILMExperiments:
             train_set = toks[0]
             train_house = toks[1]
             train_dates = [str(toks[2]), str(toks[3].rstrip("\n"))]
-            datasource = DatasourceFactory.create_datasource(train_set)
+            datasource = DatasourceFactory.create_datasource(train_set) #returns a datasource object from NILMTK library
             if experiment_category == SupportedExperimentCategories.MULTI_CATEGORY:
                 train_info.append({
                     COLUMN_DEVICE: device,

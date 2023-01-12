@@ -15,6 +15,7 @@
 		"donjayamanne.python-environment-manager",
 		"donjayamanne.python-extension-pack",
 		"GrapeCity.gc-excelviewer",
+		"Percy.vscode-pydata-viewer",	
 	],
 	"runArgs": [
 		"--gpus",
